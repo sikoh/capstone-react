@@ -1,3 +1,5 @@
+ import widget1 from "../pages/widget1"
+ 
  export const mydata = [
     {
       id: 1,
@@ -7,8 +9,7 @@
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
       btnText: "Learn more about HTML",
-      destination:
-        "../components/widgets/CapitalizeInput.js"
+      destination: {widget1}
     },
     {
       id: 2,

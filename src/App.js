@@ -12,6 +12,8 @@ import Widget4 from "./pages/widget4";
 import Widget5 from "./pages/widget5";
 import Widget6 from "./pages/widget6";
 import Widget7 from "./pages/widget7";
+import Weather from "./pages/wether";
+import Swapi from "./pages/swapi";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
             <Route path="widget/5" element={<Widget5 />} />
             <Route path="widget/6" element={<Widget6 />} />
             <Route path="widget/7" element={<Widget7 />} />
+            <Route path="weather" element={<Weather />} />
+            <Route path="swapi" element={<Swapi />} />
           </Route>
         </Routes>
       </BrowserRouter>

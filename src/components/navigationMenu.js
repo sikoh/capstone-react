@@ -37,6 +37,12 @@ const NavigationMenu = () => {
           <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/7">Widget #7</Link>
           </li>
+          <li>
+            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/weather">Weather</Link>
+          </li>
+          <li>
+            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/swapi">Swapi API</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

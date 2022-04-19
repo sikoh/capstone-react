@@ -5,6 +5,7 @@ import NavigationMenu from "../components/navigationMenu";
 import Footer from "../components/footer";
 import MyCard from "../components/MyCard";
 import CapitalizeInput from "../components/widgets/CapitalizeInput";
+import widget1 from "../pages/widget1"
 
 
 const mydata = [
@@ -16,8 +17,7 @@ const mydata = [
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
       btnText: "Learn more about HTML",
-      destination:
-        "../components/widgets/CapitalizeInput.js"
+      destination: "../pages/widgets1"
     },
     {
       id: 2,
