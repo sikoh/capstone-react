@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavigationMenu from "./components/navigationMenu";
@@ -5,6 +7,7 @@ import NavigationMenu from "./components/navigationMenu";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
+import Login from "./components/widgets/login";
 import Widget1 from "./pages/widget1";
 import Widget2 from "./pages/widget2";
 import Widget3 from "./pages/widget3";
@@ -17,12 +20,29 @@ import Swapi from "./pages/swapi";
 import Dropdown from "./components/widgets/dropdownInput"
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  const unauthenticatedRoutes = () => {
+    return (
+      <Route path="/" component = {Login}/>
+    )
+  }
+
+  const authenticatedRoutes = () => {
+    return (
+      <Route index element={<Home />} />
+    )
+  }
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NavigationMenu />}>
-            <Route index element={<Home />} />
+            {isAuthenticated ? authenticatedRoutes() : unauthenticatedRoutes()}
+            
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="widget/1" element={<Widget1 />} />
