@@ -1,87 +1,187 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-export default function SwapiAPI(){
-/** "selected" here is state variable which will hold the
-* value of currently selected dropdown.
-*/
-const [selected, setSelected] = React.useState("");
+const base_url = "https://www.swapi.tech/api"
+const choices = ["films", "people", "planets", "species", "vehicles"]
 
-/** Function that will set different values to state variable
-* based on which dropdown is selected
-*/
-const changeSelectOptionHandler = (event) => {
-	setSelected(event.target.value);
+function SwapiAPI(props) {
+
+	const [selected, setSelected] = useState("");
+
+	const [people, setPeople] = useState([]);
+	const [planets, setPlanets] = useState([]);
+	const [species, setSpecies] = useState([]);
+	const [starships, setStarships] = useState([]);
+	const [vehicles, setVehicles] = useState([]);
+
+	const [choices, setChoices] = useState([])
+
+	useEffect(() => {
+
+		const getChoices = async () => {
+
+			const {data} = (await fetch("https://www.swapi.tech/api")).json()
+			console.log('::d', data)
+
+			// .then(data => console.log(Object.keys(data.result)))
+			// .catch(err => console.error("Get Choices Error ", err))	
+	
+		}
+
+		getChoices()
+
+
+
+
+	}, [])
+
+
+
+		function getSpecificData(endpoint, key){
+			fetch(base_url + endpoint)
+				.then(res => res.json())
+				.then(data => {
+					switch(endpoint.slice(1)) {
+						case "people":
+							setPeople(data)
+					}
+				})
+
+		}
+
+	
+
+
+	const changeSelectOptionHandler = (e) => {
+		setSelected(e.target.value);
+
+		getSpecificData(`/${e.target.value}`)
+	};
+
+
+
+	let options = "";
+
+	// let type = null;
+
+
+	let ppl = people.map((item) => <option key={item.name}>{item.name}</option>);
+
+	let plnts = planets.map((item) => <option key={item.name}>{item.name}</option>);
+
+	let spcs = species.map((item) => <option key={item.name}>{item.name}</option>);
+
+	let star_ships = starships.map((item) => <option key={item.name}>{item.name}</option>);
+
+	let vehicles_ = vehicles.map((item) => <option key={item.name}>{item.name}</option>);
+
+
+
+
+	
+
+	if (selected === "people") {
+		options = ppl
+	} else if (selected === "planets") {
+		options = {plnts}
+	} else if (selected === "species") {
+		options = {spcs}
+	} else if (selected === "starships") {
+		options = {star_ships}
+	} else if (selected === "vehicles") {
+		options = {vehicles_}
+	}
+
+
+	return (
+		<div
+		style={{
+			padding: "16px",
+			margin: "16px",
+		}}
+		>
+
+			
+		
+		</div>
+	);
 };
 
-/** Different arrays for different dropdowns */
-const people = [
-	"Searching Algorithm",
-	"Sorting Algorithm",
-	"Graph Algorithm",
-];
-const planets = ["C++", "Java", "Python", "C#"];
-const species = ["Arrays", "LinkedList", "Stack", "Queue"];
-const starships = ["C++", "Java", "Python", "C#"];
-const vehicles = ["Arrays", "LinkedList", "Stack", "Queue"];
+function Test() {
+	const [choices, setChoices] = useState([])
+	const [selection, setSelection] = useState('')
+	const [extraData, setExtraData] = useState([])
+	const [extraSelection, setExtraSelection] = useState('')
+	const [loadingChoices, setLoadingChoices] = useState(false)
+	const [loadingExtraData, setLoadingExtraData] = useState(false)
 
-/** Type variable to store different array for different dropdown */
-let type = null;
+	useEffect(() => {
 
-/** This will be used to create set of options that user will see */
-let options = null;
+		const getChoices = async () => {
 
-/** Setting Type variable according to dropdown */
-if (selected === "People") {
-	type = people;
-} else if (selected === "Planets") {
-	type = planets;
-} else if (selected === "Species") {
-	type = species;
-} else if (selected === "Starships") {
-	type = starships;
-} else if (selected === "Vehicles") {
-	type = vehicles;
-}
+			try {
+				setLoadingChoices(true)
+				const {result} = await (await fetch("https://www.swapi.tech/api")).json()
 
-/** If "Type" is null or undefined then options will be null,
-* otherwise it will create a options iterable based on our array
-*/
-if (type) {
-	options = type.map((el) => <option key={el}>{el}</option>);
-}
-return (
-	<div
-	style={{
-		padding: "16px",
-		margin: "16px",
-	}}
-	>
-	<form>
-		<div>
-		{/** Bind changeSelectOptionHandler to onChange method of select.
-		* This method will trigger every time different
-		* option is selected.
-		*/}
-		<select onChange={changeSelectOptionHandler}>
-			<option>Choose...</option>
-			<option>People</option>
-			<option>Planets</option>
-			<option>Species</option>
-            <option>Starships</option>
-			<option>Vehicles</option>
-		</select>
-		</div>
-		<div>
-		<select>
-			{
-			/** This is where we have used our options variable */
-			options
+				setChoices(Object.keys(result))
+	
+			} catch (err) {
+				console.log(err)
+
+			} finally {
+				setLoadingChoices(false)
 			}
-		</select>
+
+	
+		}
+
+		getChoices()
+	}, [])
+
+	useEffect(() => {
+
+
+		const getData = async () => {
+			const {results} = await (await fetch(`https://www.swapi.tech/api/${selection}?limit=1000`)).json()
+
+			setExtraData(results)
+		}
+
+		if (selection === 'Make a choice...') setExtraData([])
+		else if (selection === 'films') setExtraData([])
+		else getData()
+
+	}, [selection])
+
+	const handleSelection = (e) => {
+		setSelection(e.target.value)
+	}
+
+	const handleExtraSelection = (e) => {
+
+	}
+
+
+	return (
+		<div>
+			{/* Hello world */}
+			<select onChange={handleSelection}>
+				{loadingChoices && <option>Loading...</option>}
+				{!loadingChoices && (<>
+					<option>Make a choice...</option>
+					{choices.map(item => <option key={item}>{item}</option>)}
+				</>)}
+			</select>
+
+			{extraData?.length > 0 && (
+				<select onChange={handleExtraSelection}>
+					<option>Make another choice...</option>
+					{extraData.map(item => <option key={item.uid}>{item.name}</option>)}
+				</select>
+			)}
+
 		</div>
-	</form>
-	</div>
-);
-};
+	)
+}
 
-
+export default Test

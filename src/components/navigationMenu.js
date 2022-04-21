@@ -43,6 +43,9 @@ const NavigationMenu = () => {
           <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/swapi">Swapi API</Link>
           </li>
+          <li>
+            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/dropdown">DropDown Input</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

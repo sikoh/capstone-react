@@ -14,6 +14,7 @@ import Widget6 from "./pages/widget6";
 import Widget7 from "./pages/widget7";
 import Weather from "./pages/wether";
 import Swapi from "./pages/swapi";
+import Dropdown from "./components/widgets/dropdownInput"
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="widget/7" element={<Widget7 />} />
             <Route path="weather" element={<Weather />} />
             <Route path="swapi" element={<Swapi />} />
+            <Route path="dropdown" element={<Dropdown />} />
           </Route>
         </Routes>
       </BrowserRouter>
