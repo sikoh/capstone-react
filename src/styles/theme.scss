@@ -1,1 +1,23 @@
-$nav-blue-color:#1b9cfc;
+$nav-blue-color: #1b9cfc;
+
+@mixin flexbox {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flexbox-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin widget-display {
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  padding: "10% 40%";
+}
+
+.page-wrapper {
+  @include widget-display();
+}

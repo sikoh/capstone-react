@@ -1,23 +1,50 @@
-
 import { Outlet, Link } from "react-router-dom";
+import React from "react";
 
+// import logout from "./Logout";
 
 const NavigationMenu = () => {
-    return (
-      <>
+  return (
+    <>
       <nav className="navigation">
-        <ul style={{display:"flex", justifyContent:"center", listStyleType: "none" }}>
+        <ul
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            listStyleType: "none",
+          }}
+        >
           <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/">Home</Link>
+            <Link
+              style={{ textDecoration: "none", paddingRight: "30px" }}
+              to="/"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/about">About</Link>
+            <Link
+              style={{ textDecoration: "none", paddingRight: "30px" }}
+              to="/about"
+            >
+              About
+            </Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/contact">Contact</Link>
+            <Link
+              style={{ textDecoration: "none", paddingRight: "30px" }}
+              to="/contact"
+            >
+              Contact
+            </Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/contact">Logout</Link>
+            {/* <Link
+              style={{ textDecoration: "none", paddingRight: "30px" }}
+              // onClick={logout}
+            >
+              Logout
+            </Link> */}
           </li>
           {/* <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/1">Widget #1</Link>
@@ -52,8 +79,8 @@ const NavigationMenu = () => {
         </ul>
       </nav>
       <Outlet />
-      </>
-    )
-  };
-  
-  export default NavigationMenu;
+    </>
+  );
+};
+
+export default NavigationMenu;

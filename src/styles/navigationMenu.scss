@@ -1,12 +1,12 @@
 .navigation {
-    padding: 10px;
-    background-color: $nav-blue-color;
+  padding: 10px;
+  background-color: $nav-blue-color;
+  width: 100vw;
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-
 
     li {
       float: left;
@@ -17,6 +17,7 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        font-size: 25px;
       }
     }
   }

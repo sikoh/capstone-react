@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const base_url = "https://www.swapi.tech/api";
-const choices = ["films", "people", "planets", "species", "vehicles"];
+// const base_url = "https://www.swapi.tech/api";
+// const choices = ["films", "people", "planets", "species", "vehicles"];
 
 function SwapiAPI(props) {
   const [choices, setChoices] = useState([]);
@@ -88,13 +88,7 @@ function SwapiAPI(props) {
   // console.log("::e", loadingExtraData);
 
   return (
-    <div
-      style={{
-        padding: "16px",
-        margin: "16px",
-      }}
-    >
-      {/* Hello world */}
+    <div className="page-wrapper">
       <select onChange={(e) => setSelection(e.target.value)}>
         {loadingChoices && <option>Loading...</option>}
         {!loadingChoices && (
@@ -121,7 +115,7 @@ function SwapiAPI(props) {
         </select>
       )}
 
-      {extraSelection && <button onClick={handleClick}>Click Me!</button>}
+      {extraSelection && <button onClick={handleClick}>Get more info</button>}
 
       {details && showDetails && (
         <pre>{JSON.stringify(details.properties, undefined, 2)}</pre>

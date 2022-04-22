@@ -1,3 +1,4 @@
+import React from "react";
 import NavigationMenu from "./navigationMenu";
 
 const Footer = () => {
@@ -5,12 +6,13 @@ const Footer = () => {
     <div
       className="footer"
       style={{
+        width: "100vw",
         marginTop: "2%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: "10px"
+        gap: "10px",
       }}
     >
       <div className="footer-links" style={{ marginLeft: "120px" }}>
@@ -19,6 +21,6 @@ const Footer = () => {
       <div className="copy-right">@Copyright Footer</div>
     </div>
   );
-}
+};
 
 export default Footer;
