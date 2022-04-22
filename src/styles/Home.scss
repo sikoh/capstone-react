@@ -1,6 +1,17 @@
-.page-wrapper-home{
-
-    main{margin: 10%;
-    }
-    
+.page-wrapper-home {
+  main {
+    margin: 10%;
+    //     div {
+    //       display: "grid";
+    //       grid-template-columns: "1fr 1fr 1fr";
+    //       gap: "8rem";
+    //     }
+  }
 }
+
+// @media only screen and (min-width: 1350px) {
+//   div {
+//     grid-template-columns: "1fr 1fr";
+//     gap: "8rem";
+//   }
+// }

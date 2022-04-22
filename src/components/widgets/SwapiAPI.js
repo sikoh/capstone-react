@@ -88,7 +88,7 @@ function SwapiAPI(props) {
   // console.log("::e", loadingExtraData);
 
   return (
-    <div className="page-wrapper">
+    <div className="select-wrapper">
       <select onChange={(e) => setSelection(e.target.value)}>
         {loadingChoices && <option>Loading...</option>}
         {!loadingChoices && (
