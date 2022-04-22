@@ -1,9 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
 
-// import logout from "./Logout";
-
-const NavigationMenu = () => {
+const NavigationMenu = ({ logout }) => {
   return (
     <>
       <nav className="navigation">
@@ -39,43 +37,13 @@ const NavigationMenu = () => {
             </Link>
           </li>
           <li>
-            {/* <Link
+            <button
               style={{ textDecoration: "none", paddingRight: "30px" }}
-              // onClick={logout}
+              onClick={logout}
             >
               Logout
-            </Link> */}
+            </button>
           </li>
-          {/* <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/1">Widget #1</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/2">Widget #2</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/3">Widget #3</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/4">Widget #4</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/5">Widget #5</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/6">Widget #6</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/7">Widget #7</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/weather">Weather</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/swapi">Swapi API</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/dropdown">DropDown Input</Link>
-          </li> */}
         </ul>
       </nav>
       <Outlet />

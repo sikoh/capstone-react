@@ -1,8 +1,7 @@
-
 import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import './styles/App.scss';
+import "./styles/App.scss";
 
 import NavigationMenu from "./components/navigationMenu";
 
@@ -19,10 +18,10 @@ import Widget6 from "./pages/widget6";
 import Widget7 from "./pages/widget7";
 import Weather from "./pages/wether";
 import Swapi from "./pages/swapi";
-import Dropdown from "./components/widgets/dropdownInput"
+import Dropdown from "./components/widgets/dropdownInput";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = useCallback((isLoggedIn) => {
     setIsAuthenticated(isLoggedIn);
@@ -30,43 +29,45 @@ function App() {
 
   const unauthenticatedRoutes = () => {
     return (
-      <Route index
-      element={<Login setIsAuthenticated={setIsAuthenticated} />}
-    />
-    )
+      <Route
+        index
+        element={<Login setIsAuthenticated={setIsAuthenticated} />}
+      />
+    );
   };
 
-
   const authenticatedRoutes = () => {
-    return (
-      <Route index element={<Home />} />
-    )
-  }
-
+    return <Route index element={<Home />} />;
+  };
 
   useEffect(() => {
-    fetch("http://devpipeline-mock-api.herokuapp.com/api/auth/check-login",{
-      credentials: "include"
-    } )
-    .then(res => res.json())
-    .then(data => {
-      if(!data.error) {
-        handleLogin(true)
-      }
+    fetch("http://devpipeline-mock-api.herokuapp.com/api/auth/check-login", {
+      credentials: "include",
     })
-    .catch(err => {
-      console.error("Check Login Error: ", err)
-      handleLogin(false)
-    })
-  }, [handleLogin])
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.error) {
+          handleLogin(true);
+        }
+      })
+      .catch((err) => {
+        console.error("Check Login Error: ", err);
+        handleLogin(false);
+      });
+  }, [handleLogin]);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<NavigationMenu />}>
+          <Route
+            path="/"
+            element={
+              <NavigationMenu logout={() => setIsAuthenticated(false)} />
+            }
+          >
             {isAuthenticated ? authenticatedRoutes() : unauthenticatedRoutes()}
-            
+
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="widget/1" element={<Widget1 />} />
