@@ -6,105 +6,132 @@ import Footer from "../components/footer";
 import MyCard from "../components/MyCard";
 import CapitalizeInput from "../components/widgets/CapitalizeInput";
 import widget1 from "../pages/widget1"
+import pic from "../components/images/coding.jpeg"
 
 
 const mydata = [
     {
       id: 1,
-      imagesrc: "https://source.unsplash.com/random/",
+      imagesrc: "https://source.unsplash.com/random/200px/?coding",
       title: "How to capitalize an input in React",
       content: `HTML (HyperText Markup Language) is the most 
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
-      btnText: "Learn more about HTML",
-      destination: "../pages/widgets1"
+      btnText: "Learn more",
+      destination: "widget/1"
     },
     {
       id: 2,
-      imagesrc:
-        "https://pics.freeicons.io/uploads/icons/png/16738931111536080149-512.png",
+      imagesrc: "https://source.unsplash.com/random/200px/?computer",
       title: "Read more/Read Less in React",
       content: `Cascading Style Sheets (CSS) is a stylesheet language used 
       to describe the presentation 
       of a document written in HTML or XML 
       (including XML dialects such as SVG, MathML or XHTML).`,
-      btnText: "Learn more about CSS",
-      destination: "css"
+      btnText: "Learn more",
+      destination: "widget/2"
     },
     {
       id: 3,
-      imagesrc:
-        "https://pics.freeicons.io/uploads/icons/png/15439815101553233114-512.png",
+      imagesrc:"https://source.unsplash.com/random/200px/?programming",
       title: "How to fetch data in React using useEffect",
       content: `JavaScript (JS) is a lightweight, interpreted, 
       or just-in-time compiled programming language with 
       first-class functions.`,
-      btnText: "Learn more about JS",
-      destination: "JavaScript"
+      btnText: "Learn more",
+      destination: "widget/3"
     },
     {
       id: 4,
-      imagesrc: "https://unsplash.com/s/photos/random",
+      imagesrc: "https://source.unsplash.com/random/200px/?monitor",
       title: "How to get a random 8 digit number in React",
       content: `HTML (HyperText Markup Language) is the most 
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
-      btnText: "Learn more about Django",
-      destination: "Django"
+      btnText: "Learn more",
+      destination: "widget/4"
     },
     {
       id: 5,
-      imagesrc:
-        "https://pics.freeicons.io/uploads/icons/png/16738931111536080149-512.png",
+      imagesrc: "https://source.unsplash.com/random/200px/?laptop",
       title: "Get a list of inputs - React",
       content: `Cascading Style Sheets (CSS) is a stylesheet language used 
       to describe the presentation 
       of a document written in HTML or XML 
       (including XML dialects such as SVG, MathML or XHTML).`,
-      btnText: "Learn more about CSS",
-      destination: "css"
+      btnText: "Learn more",
+      destination: "widget/5"
     },
     {
       id: 6,
-      imagesrc:
-        "https://pics.freeicons.io/uploads/icons/png/15439815101553233114-512.png",
+      imagesrc: "https://source.unsplash.com/random/200px/?calculator",
       title: "How to lowercase an input - React",
       content: `JavaScript (JS) is a lightweight, interpreted, 
       or just-in-time compiled programming language with 
       first-class functions.`,
-      btnText: "Learn more about JS",
-      destination: "html"
+      btnText: "Learn more",
+      destination: "widget/6"
+    },
+    {
+      id: 7,
+      imagesrc: "https://source.unsplash.com/random/200px/?monitor",
+      title: "How to get a random 8 digit number in React",
+      content: `HTML (HyperText Markup Language) is the most 
+      basic building block of the Web. It defines 
+      the meaning and structure of web content.`,
+      btnText: "Learn more",
+      destination: "widget/7"
+    },
+    {
+      id: 8,
+      imagesrc: "https://source.unsplash.com/random/200px/?laptop",
+      title: "Get a list of inputs - React",
+      content: `Cascading Style Sheets (CSS) is a stylesheet language used 
+      to describe the presentation 
+      of a document written in HTML or XML 
+      (including XML dialects such as SVG, MathML or XHTML).`,
+      btnText: "Learn more",
+      destination: "weather"
+    },
+    {
+      id: 9,
+      imagesrc: "https://source.unsplash.com/random/200px/?calculator",
+      title: "How to lowercase an input - React",
+      content: `JavaScript (JS) is a lightweight, interpreted, 
+      or just-in-time compiled programming language with 
+      first-class functions.`,
+      btnText: "Learn more",
+      destination: "swapi"
     }
   ];
 
 
 const Home = () => {
     return (
-        <div className="page-wrapper">
-          
-          <main>
-            <div
-            style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gap: "2rem"
-            }}
-            >
+        <div className="page-wrapper-home">
+            <main>
+              <div
+              style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr",
+                  gap: "8rem"
+              }}
+              >
 
-            {mydata.map((item) => (
-                <MyCard
-                key={item.id}
-                item={item.imagesrc}
-                title={item.title}
-                content={item.content}
-                button={item.btnText}
-                destination={item.destination}
-                ></MyCard>
-            ))}
+              {mydata.map((item) => (
+                  <MyCard
+                  key={item.id}
+                  item={item.imagesrc}
+                  title={item.title}
+                  content={item.content}
+                  button={item.btnText}
+                  destination={item.destination}
+                  ></MyCard>
+              ))}
 
-            </div>
-      </main>
-          
+              </div>
+            </main>
+          <Footer/ >
         </div>
       );
 };

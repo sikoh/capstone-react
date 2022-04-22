@@ -5,7 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 const NavigationMenu = () => {
     return (
       <>
-      <nav>
+      <nav className="navigation">
         <ul style={{display:"flex", justifyContent:"center", listStyleType: "none" }}>
           <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/">Home</Link>
@@ -17,6 +17,9 @@ const NavigationMenu = () => {
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/contact">Contact</Link>
           </li>
           <li>
+            <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/contact">Logout</Link>
+          </li>
+          {/* <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/widget/1">Widget #1</Link>
           </li>
           <li>
@@ -45,7 +48,7 @@ const NavigationMenu = () => {
           </li>
           <li>
             <Link style={{textDecoration:"none", paddingRight:"30px"}} to="/dropdown">DropDown Input</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
       <Outlet />

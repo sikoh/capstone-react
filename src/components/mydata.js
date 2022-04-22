@@ -1,6 +1,6 @@
  import widget1 from "../pages/widget1"
  
- export const mydata = [
+    const mydata = [
     {
       id: 1,
       imagesrc: "https://unsplash.com/s/photos/random",
@@ -8,7 +8,7 @@
       content: `HTML (HyperText Markup Language) is the most 
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
-      btnText: "Learn more about HTML",
+      btnText: "Learn more",
       destination: {widget1}
     },
     {
@@ -20,7 +20,7 @@
       to describe the presentation 
       of a document written in HTML or XML 
       (including XML dialects such as SVG, MathML or XHTML).`,
-      btnText: "Learn more about CSS",
+      btnText: "Learn more",
       destination: "css"
     },
     {
@@ -31,7 +31,7 @@
       content: `JavaScript (JS) is a lightweight, interpreted, 
       or just-in-time compiled programming language with 
       first-class functions.`,
-      btnText: "Learn more about JS",
+      btnText: "Learn more",
       destination: "JavaScript"
     },
     {
@@ -41,7 +41,7 @@
       content: `HTML (HyperText Markup Language) is the most 
       basic building block of the Web. It defines 
       the meaning and structure of web content.`,
-      btnText: "Learn more about Django",
+      btnText: "Learn more",
       destination: "Django"
     },
     {
@@ -53,7 +53,7 @@
       to describe the presentation 
       of a document written in HTML or XML 
       (including XML dialects such as SVG, MathML or XHTML).`,
-      btnText: "Learn more about CSS",
+      btnText: "Learn more",
       destination: "css"
     },
     {
@@ -64,7 +64,9 @@
       content: `JavaScript (JS) is a lightweight, interpreted, 
       or just-in-time compiled programming language with 
       first-class functions.`,
-      btnText: "Learn more about JS",
+      btnText: "Learn more",
       destination: "html"
     }
   ];
+
+  export default mydata;

@@ -1,38 +1,29 @@
 function MyCard(props) {
-    const { item, title, content, button, destination } = props;
-  
-    return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-        }}
-      >
-        <div
-          style={{
-            border: "gray solid 1px",
-            height: "300px"
-          }}
-        >
-          <img src={item} alt="banner" height="70px" width="100%" />
-          <h1>{title}</h1>
-          <p>{content}</p>
+  const { item, title, content, button, destination } = props;
+
+  return (
+    <div className="card-container">
+        <div className="image-container">
+          <img src={item} alt="banner" />
         </div>
-  
-        <a
-          style={{
-            padding: "5px",
-            backgroundColor: "gray",
-            textDecoration: "none",
-            borderColor: "#000000",
-            color: "white"
-          }}
-          href={destination}
-        >
-          {button}
-        </a>
-      </div>
-    );
-  }
-  export default MyCard;
+
+        <div className="card-content">
+            <div className="card-title">
+                <h3>{title}</h3>
+            </div>
+
+            <div className="card-body">
+              <p>{content}</p>
+            </div>
+        </div>
+
+        <div className="btn">
+            <button>
+              <a href={destination}> {button} </a>
+            </button>
+        </div>
+
+    </div>
+  );
+}
+export default MyCard;

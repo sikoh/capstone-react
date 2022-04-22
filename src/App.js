@@ -1,13 +1,15 @@
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import './styles/App.scss';
 
 import NavigationMenu from "./components/navigationMenu";
 
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
-import Login from "./components/widgets/login";
+import Login from "./pages/Login";
 import Widget1 from "./pages/widget1";
 import Widget2 from "./pages/widget2";
 import Widget3 from "./pages/widget3";
@@ -22,11 +24,18 @@ import Dropdown from "./components/widgets/dropdownInput"
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+  const handleLogin = useCallback((isLoggedIn) => {
+    setIsAuthenticated(isLoggedIn);
+  }, []);
+
   const unauthenticatedRoutes = () => {
     return (
-      <Route path="/" component = {Login}/>
+      <Route index
+      element={<Login setIsAuthenticated={setIsAuthenticated} />}
+    />
     )
-  }
+  };
+
 
   const authenticatedRoutes = () => {
     return (
@@ -35,6 +44,21 @@ function App() {
   }
 
 
+  useEffect(() => {
+    fetch("http://devpipeline-mock-api.herokuapp.com/api/auth/check-login",{
+      credentials: "include"
+    } )
+    .then(res => res.json())
+    .then(data => {
+      if(!data.error) {
+        handleLogin(true)
+      }
+    })
+    .catch(err => {
+      console.error("Check Login Error: ", err)
+      handleLogin(false)
+    })
+  }, [handleLogin])
 
   return (
     <div className="App">
