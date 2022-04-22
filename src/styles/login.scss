@@ -1,9 +1,32 @@
-.page-wrapper {
-  @include flexbox-column;
-  align-items: center;
-  margin-top: 5%;
-  form {
-    width: 20vw;
-    @include flexbox-column();
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+
+  .vector-wrapper {
+    height: 100%;
+    width: 50%;
+    background-color: rgb(196, 231, 247);
+
+    img {
+      margin: 0%;
+      position: absolute;
+      top: 45%;
+      left: 25%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .form-wrapper {
+    margin: 0%;
+    position: absolute;
+    top: 43%;
+    left: 75%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    form {
+      width: 20vw;
+      @include flexbox-column();
+    }
   }
 }

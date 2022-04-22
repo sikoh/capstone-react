@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import loginPic from "../components/images/login-img.svg";
+
 function Login(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -33,32 +35,37 @@ function Login(props) {
   }
 
   return (
-    <div className="page-wrapper">
-      <h1>Login</h1>
+    <div className="login-wrapper">
+      <div className="vector-wrapper">
+        <img src={loginPic} />
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            placeholder="Username or Email"
-            required
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div>
+      <div className="form-wrapper">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input
+              type="text"
+              placeholder="Username or Email"
+              required
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
 
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        <button disabled={!userName || !password} type="submit">
-          Login
-        </button>
-      </form>
+          <button disabled={!userName || !password} type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
